@@ -18,6 +18,28 @@ app.use(cors());
 app.use(helmet()); // security middleware helping to protect your app by setting various HTTP headers
 app.use(morgan("dev")); //log requests
 
+//apply arc jet rate limit to all routes must be before my routes in this file.
+
+app.use(async (req,res,next) => {
+    try{
+        const decision = await aj.protect(req, {
+            requested:1 //specifies that each request consumes 1 token
+        }) 
+        if (decision.isDenied()){
+            res.status(429).json({ success: false, message: "Too many requests, please try again later." });
+        } else if (decision.reason.isBot()){
+            res.status(403).json({ success: false, message: "Bots are not allowed to access this resource." });
+        } else {
+            res.status(403).json({ success: false, message: "Access denied." });
+        } 
+        return
+    next();
+    }catch (error) {
+        console.log("Error in Arcjet middleware", error);
+        next(error);
+    }
+});
+
 app.use("/api/products", productRoutes);
 
 async function initDB() {
@@ -43,4 +65,6 @@ initDB().then(() => {
         console.log("Server is running on port " + PORT);
     });
 })
+
+
 

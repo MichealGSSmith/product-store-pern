@@ -16,9 +16,9 @@ export const getProducts = async (req,res) => {
 };
 
 export const createProduct = async (req,res) => {
-    const { name, image, price } = req.body
+    const { name, price, image } = req.body
 
-    if (!name || !image || !price) {
+    if (!name || !price || !image) {
         return res.status(400).json({ success: false, message: "Please provide name, image and price" });
     };
     
@@ -45,7 +45,7 @@ export const getProduct = async (req,res) => {
         const getProduct = await sql`
             SELECT * FROM products WHERE id=${id}
             `
-            res.status(200).json({ success: true, data: product[0] });
+            res.status(200).json({ success: true, data: getProduct[0] });
     }catch (error) {
         console.log("Error getProduct", error);
         res.status(500).json({ success: false, message: "Server Error" });

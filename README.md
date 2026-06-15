@@ -13,3 +13,9 @@ June 13 2026
 
 created my functions for the CRUD operations of my database. Got side tracked with some CFL game time SSK vs BC. Dont like either team but it one heck a game.
 7:55pm
+
+June 15 3am
+
+got my datavase routes completly sorted out tested with postman  to make sure apis were working, now all my api endpoints and crud operations are finished. I continued working on the arcjet portions puttin in my rate limit and bot protection. I am almost finished that part.
+
+4:13am
