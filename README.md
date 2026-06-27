@@ -19,3 +19,11 @@ June 15 3am
 got my datavase routes completly sorted out tested with postman  to make sure apis were working, now all my api endpoints and crud operations are finished. I continued working on the arcjet portions puttin in my rate limit and bot protection. I am almost finished that part.
 
 4:13am
+
+06-27-2026
+
+12pm  
+
+I initialized my front end of the app, had to fix some issues with arcjet, then got the tailwind css and vite all set up. Started to get the front end working getting ym routes set up on the frontend.
+
+12:41 pm
