@@ -27,3 +27,8 @@ got my datavase routes completly sorted out tested with postman  to make sure ap
 I initialized my front end of the app, had to fix some issues with arcjet, then got the tailwind css and vite all set up. Started to get the front end working getting ym routes set up on the frontend.
 
 12:41 pm
+
+06-28-2026
+6pm
+Started working on the nav bar got the logo and the item box indicator set up. played with the tailwind css to try and figure out the padding and margin
+7:10pm
