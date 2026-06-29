@@ -44,3 +44,7 @@ Working on the colour palette selector button
 finished the nav bar and the theme selection portion. Really have to make sure my hooks are imported correctly and my syntax is correct.
 
 12:58pm
+
+Creating the product page and figuring out how to map the array to create the product cards.
+
+1:49pm
