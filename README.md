@@ -39,4 +39,8 @@ Started working on the nav bar got the logo and the item box indicator set up. p
 
 Working on the colour palette selector button
 
-12:14
+12:14pm
+
+finished the nav bar and the theme selection portion. Really have to make sure my hooks are imported correctly and my syntax is correct.
+
+12:58pm
