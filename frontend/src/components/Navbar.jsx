@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useResolvedPath } from 'react-router-dom'
 import { ShoppingCartIcon, ShoppingBagIcon } from 'lucide-react'
+import ThemeSelector from './ThemeSelector'
 
 function Navbar() {
   const {pathname} = useResolvedPath()
@@ -22,12 +23,12 @@ function Navbar() {
           </div>
           {/*Side icons */}
           <div className= 'flex items-center gap-4'>
-            <p>ThemeSelector</p>
+            <ThemeSelector/>
             {isHomePage && (
               <div className= 'indicator'>
                 <div className= 'p-2 rounded-full hover:bg-base-200 transition-colors'>
                   <ShoppingBagIcon className= 'size-5'/>
-                  <span className= 'badge badge-sm badge-primary indicator-item'>8</span>
+                  <span className= 'badge badge-sm badge-primary indicator-item'>0</span>
                 </div>
               </div>
             )}

@@ -32,3 +32,11 @@ I initialized my front end of the app, had to fix some issues with arcjet, then 
 6pm
 Started working on the nav bar got the logo and the item box indicator set up. played with the tailwind css to try and figure out the padding and margin
 7:10pm
+
+06-29-2026
+
+11:15am
+
+Working on the colour palette selector button
+
+12:14
