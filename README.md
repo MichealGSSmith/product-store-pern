@@ -48,3 +48,11 @@ finished the nav bar and the theme selection portion. Really have to make sure m
 Creating the product page and figuring out how to map the array to create the product cards.
 
 1:49pm
+
+06-30-2026
+
+11:15am
+
+I got my product page to fetch the items in my database and finished the item card to display it, i also linked the product info to go to the product specific page which i will create the view for that later. I then fixed some css and cosmetic things on the product store page.
+
+11:56am

@@ -10,8 +10,8 @@ function Navbar() {
   
   return (
     <div className='bg-base-100/80 backdrop-blur-lg border-b border-base-content/10 sticky top-0 z-50'>
-      <div className='w-full max-w-7xl '>
-        <div className='navbar px-1 min-h-[4rem] justify-between'>
+      <div className='w-full max-w-7xl mx-auto'>
+        <div className='navbar px-2 min-h-[4rem] justify-between'>
           {/*LOGO/Name */}
           <div className='flex-1 lg:flex-none'>
             <Link to='/' className='hover:opacity-80 transition-opacity'>
@@ -24,7 +24,7 @@ function Navbar() {
             </Link>
           </div>
           {/*Side icons */}
-          <div className= 'flex items-center gap-4'>
+          <div className= 'flex items-center gap-2'>
             <ThemeSelector/>
             {isHomePage && (
               <div className= 'indicator'>
