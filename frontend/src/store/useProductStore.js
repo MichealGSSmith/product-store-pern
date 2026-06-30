@@ -1,9 +1,10 @@
 import {create} from 'zustand';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const BASE_URL = "http://localhost:3000";
 
-export const useProductStore = create((set) => ({
+export const useProductStore = create((set, get) => ({
     products:[],
     loading: false,
     error:null,
@@ -14,10 +15,25 @@ export const useProductStore = create((set) => ({
             set({products: response.data.data, error:null});
 
         }catch(err) {
-            if(err.status == 429) set({error: "rate limit exceeded"});
-            else set({error: "something went wrong"});
+            if(err.status == 429) set({error: "rate limit exceeded", products: []});
+            else set({error: "something went wrong", products: []});
         }finally{
             set({loading:false});
+        }
+    },
+
+    deleteProduct: async (id) => {
+        set({loading: true});
+        try {
+            await axios.delete(`${BASE_URL}/api/products/${id}`);
+            set(prev => ({products: prev.products.filter(products => products.id !== id)}));
+            toast.success("Product deleted successfully")
+        } catch (error) {
+            console.log("Error in the deleteProduct function", error);
+            toast.error("Something Went Wrong")
+            
+        } finally {
+            set({loading: false});
         }
     }
 
