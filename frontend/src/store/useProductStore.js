@@ -5,9 +5,39 @@ import toast from 'react-hot-toast';
 const BASE_URL = "http://localhost:3000";
 
 export const useProductStore = create((set, get) => ({
+    //product state
     products:[],
     loading: false,
     error:null,
+
+    //Form state
+    formData: {
+        name:"",
+        price:"",
+        image:"",
+    },
+    setFormData: (formData) => set ({ formData }),
+    resetForm: () => set({ formData: { name:"", price:"", image:""}}),
+
+    addProduct: async(e) => {
+        e.preventDefault();
+        set({ loading: true});
+
+        try {
+            const {formData} = get()
+            await axios.post(`${BASE_URL}/api/products`, formData)
+            await get().fetchProducts();
+            get().resetForm();
+            toast.success("Product added successfully");
+            
+        } catch (error) {
+            console.log("Error in the addProduct function", error);
+            toast.error("Something went wrong, oops!");
+        } finally {
+            set({loading: false});
+        }
+    },
+
     fetchProducts: async () => {
         set({loading: true});
         try{
