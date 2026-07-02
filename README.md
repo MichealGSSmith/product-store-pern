@@ -60,3 +60,11 @@ I got my product page to fetch the items in my database and finished the item ca
 Created the delete function for my product cards, i have also made sure toast is activated so i get some nice completion or error notifications 
 
 12:34pm
+
+07-02-2026
+
+12pm
+
+Finished all the add product modal this is continued from yesterday i just didnt add into readme that i did it
+
+12:15pm
