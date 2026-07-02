@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import path from "path";
 
 import productRoutes from "./routes/productRoutes.js";
 import { sql } from "./config/db.js";
@@ -11,36 +12,16 @@ import { aj } from "./lib/arcjet.js";
 
 const app =express();
 const PORT = process.env.PORT || 3000;
-
-
+const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cors());
-app.use(helmet()); // security middleware helping to protect your app by setting various HTTP headers
+app.use(helmet({
+    contentSecurityPolicy: false,
+})); // security middleware helping to protect your app by setting various HTTP headers
 app.use(morgan("dev")); //log requests
 
 //apply arc jet rate limit to all routes must be before my routes in this file.
-
-/*
-app.use(async (req,res,next) => {
-    try{
-        const decision = await aj.protect(req, {
-            requested:1 //specifies that each request consumes 1 token
-        }); 
-        if (decision.isDenied()){
-
-            res.status(429).json({ success: false, message: "Too many requests, please try again later." });
-        } else if (decision.reason.isBot()){
-            res.status(403).json({ success: false, message: "Bots are not allowed to access this resource." });
-        } else {
-            res.status(403).json({ success: false, message: "Access denied." });
-        } 
-    next();
-    }catch (error) {
-        console.log("Error in Arcjet middleware", error);
-        next(error);
-    }
-});*/
 
 app.use(async (req, res, next) => {
     try {
@@ -80,6 +61,13 @@ app.use(async (req, res, next) => {
 });
 
 app.use("/api/products", productRoutes);
+
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "/frontend/dist")));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+    });
+}
 
 async function initDB() {
     try{

@@ -68,3 +68,7 @@ Created the delete function for my product cards, i have also made sure toast is
 Finished all the add product modal this is continued from yesterday i just didnt add into readme that i did it
 
 12:15pm
+
+finished the product page and the edit feature, i then set up the env for production and set the base_url to be dynamic and got the app ready for render.com hosting
+
+1:14pm
