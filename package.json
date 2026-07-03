@@ -10,13 +10,14 @@
   "scripts": {
     "dev": "nodemon backend/server.js",
     "build": "npm install --prefix frontend --production=false && npm run build --prefix frontend",
-    "start": "node --experimental-specifier-resolution=node backend/server.js"
+    "start": "node backend/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@arcjet/node": "1.4.1",
+    "@arcjet/node": "^1.5.0",
+    "@arcjet/transport": "^1.5.0",
     "@neondatabase/serverless": "^1.1.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
