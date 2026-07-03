@@ -9,8 +9,8 @@
   },
   "scripts": {
     "dev": "nodemon backend/server.js",
-    "build": "npm install --prefix frontend --production=false && npm run build --prefix frontend",
-    "start": "node backend/server.js"
+    "build": "npm install --include=dev && npm install --prefix frontend --production=false && npm run build --prefix frontend",
+    "start": "node --experimental-require-module backend/server.js"
   },
   "keywords": [],
   "author": "",
