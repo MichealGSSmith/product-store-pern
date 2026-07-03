@@ -22,7 +22,7 @@ app.use(morgan("dev")); //log requests
 
 //apply arc jet rate limit to all routes must be before my routes in this file.
 
-app.use(async (req, res, next) => {
+/*app.use(async (req, res, next) => {
     try {
         const decision = await aj.protect(req, {
             requested: 1,
@@ -57,7 +57,7 @@ app.use(async (req, res, next) => {
         console.log("Error in Arcjet middleware", error);
         next(error);
     }
-});
+}); */
 
 app.use("/api/products", productRoutes);
 
