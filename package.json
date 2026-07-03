@@ -25,5 +25,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
+  },
+  "overrides": {
+    "debug": "4.4.0"
   }
 }
